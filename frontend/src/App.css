@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background: #000000 url('./assets/background.jpg') no-repeat;
+  background-size: cover;
+  -webkit-font-smooting: antialiased !important;
+}
+
+body, input, button {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.container {
+  margin: 80px auto 0;
+  max-width: 450px;;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  background: #ffffff;
+  margin-top: 50px;
+  border-radius: 4px;
+  padding: 50px;
+}
+
+.content p {
+  text-align: justify;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+
+.content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.content form label {
+  color: #444444;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.content form input {
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  height: 45px;
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+.content button.btn {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 42px;
+  border: 0;
+  border-radius: 2px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #f05a5b;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.content button.btn:hover {
+  background-color: #e14f50;
+}
