@@ -12,7 +12,17 @@ module.exports = {
       date
     });
 
-    await booking.populate('spot').populate('user').execPopulate();
-    return res.json(booking); 
+    await booking
+      .populate('spot')
+      .populate('user')
+      .execPopulate();
+
+    const ownerSocket = req.connectedUsers[booking.spot.user];
+
+    if (ownerSocket) {
+      req.io.to(ownerSocket).emit('booking_request', booking);
+    }
+
+    return res.json(booking);
   }
 };

@@ -4,8 +4,10 @@ import {
   Image,
   StyleSheet,
   AsyncStorage,
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native';
+import socketio from 'socket.io-client';
 
 import SpotList from '../components/SpotList';
 
@@ -15,8 +17,26 @@ export default function List() {
   const [techs, setTechs] = useState([]);
 
   useEffect(() => {
+    getBookingResponse();
+  });
+
+  useEffect(() => {
     getStoragedTechs();
   }, []);
+
+  async function getBookingResponse() {
+    const user_id = await AsyncStorage.getItem('user');
+    const socket = socketio('http://192.168.100.13:3333', {
+      query: { user_id }
+    });
+    socket.on('booking_response', booking => {
+      Alert.alert(
+        `Sua reserva em ${booking.spot.company} foi ${
+          booking.approved ? 'Aprovada' : 'Rejeitada '
+        }`
+      );
+    });
+  }
 
   async function getStoragedTechs() {
     const storagedTechs = await AsyncStorage.getItem('techs');
@@ -46,6 +66,7 @@ const styles = StyleSheet.create({
     height: 32,
     resizeMode: 'contain',
     alignSelf: 'center',
-    marginTop: 50
+    marginTop: 50,
+    marginBottom: 20,
   }
 });

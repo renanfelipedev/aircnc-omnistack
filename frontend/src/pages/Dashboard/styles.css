@@ -1,9 +1,19 @@
+hr {
+    border: 1px solid #dddddd;
+}
+
+.welcome strong{
+    
+    color: #666666;
+}
+
 ul.spot-list {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 ul.spot-list li {
@@ -27,4 +37,38 @@ ul.spot-list li strong {
 ul.spot-list li span {
     font-size: 15px;
     color: #999999;
+}
+
+ul.notifications {
+    margin-bottom: 40px;
+}
+
+ul.notifications li {
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
+
+ul.notifications li button {
+    cursor: pointer;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+ul.notifications li button.accept {
+    color: #84c870;
+}
+
+ul.notifications li button.accept:hover {
+    opacity: 0.6;
+}
+
+ul.notifications li button.reject {
+    color: #E55E5E;
+}
+
+ul.notifications li button.reject:hover {
+    opacity: 0.6;
 }
